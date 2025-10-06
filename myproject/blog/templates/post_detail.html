@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.content }}</p>
+<p><small>Создано: {{ post.created_at|date:"d M Y H:i" }}</small></p>
+
+<a href="{% url 'post_update' post.id %}" class="btn btn-primary">Редактировать</a>
+<a href="{% url 'post_delete' post.id %}" class="btn btn-danger">Удалить</a>
+<a href="{% url 'post_list' %}" class="btn btn-secondary">Назад к списку</a>
+{% endblock %}

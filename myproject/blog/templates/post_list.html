@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Все статьи</h1>
+<div class="list-group">
+    {% for post in posts %}
+    <a href="{% url 'post_detail' post.id %}" class="list-group-item list-group-item-action">
+        <h5>{{ post.title }}</h5>
+        <small>{{ post.created_at|date:"d M Y H:i" }}</small>
+    </a>
+    {% empty %}
+    <p>Постов нет.</p>
+    {% endfor %}
+</div>
+{% endblock %}
